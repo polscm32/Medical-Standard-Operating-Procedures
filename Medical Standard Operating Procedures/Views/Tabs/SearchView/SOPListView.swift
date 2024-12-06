@@ -13,12 +13,9 @@ Uses a @Binding array of SOPDTO to reflect changes upstream.
 
 import Foundation
 import SwiftUI
-import SwiftData
 
 struct SOPListView: View {
-    let storage: DataHandler
     var viewModel: SOPViewModel
-    let modelContainer: ModelContainer
     @Binding var sops: [SOPDTO]
     @Binding var selection: SOPDTO?
     @Binding var sopCount: Int
@@ -79,8 +76,9 @@ extension SOPListView {
                            (sop.subjectRawValue == subject || subject == "All")
                 }
             }
-            let fetchDescriptor = FetchDescriptor<SOP>(predicate: predicate, sortBy: [SortDescriptor(\SOP.id)])
-            let fetchedSOPs = try await viewModel.fetchSOPs(with: fetchDescriptor)
+            
+            let fetchedSOPs = try await viewModel.fetchSOPs(with: predicate)
+            
             await MainActor.run {
                 sops = fetchedSOPs
                 sopCount = sops.count
@@ -103,9 +101,9 @@ extension SOPListView {
                     }
                 }
                 
-                // Delete the item from storage
+                // Delete the item from storage using the viewModel
                 do {
-                    try await storage.deleteSOP(withId: sop.id)
+                    try await viewModel.deleteSOP(with: sop.id)
                 } catch {
                     debugPrint("\(DebuggingIdentifiers.failed) Failed to delete SOP \(sop.id): \(error)")
                 }

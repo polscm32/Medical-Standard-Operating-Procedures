@@ -13,10 +13,17 @@ An actor that provides a SwiftData model container for the whole app.
 import Foundation
 import SwiftData
 
+protocol Storage {
+    func addSOP(title: String, details: String, keywords: [String], isFavorite: Bool, subject: Subject, screenshot: Data?) async -> SOPDTO
+    func deleteSOP(with id: UUID) async throws
+    func fetchSOPs(with descriptor: FetchDescriptor<SOP>) async throws -> [SOPDTO]
+    func updateSOP(with id: UUID, title: String?, details: String?, keywords: [String]?, isFavorite: Bool?, subject: Subject?, screenshot: Data?) async throws
+}
+
 @ModelActor
-actor DataHandler {
+actor DataHandler: Storage {
     // MARK: - Method to create a new SOP entry
-    func addSOP(title: String, details: String, keywords: [String], isFavorite: Bool, subject: Subject, screenshot: Data?) -> SOPDTO {
+    func addSOP(title: String, details: String, keywords: [String], isFavorite: Bool, subject: Subject, screenshot: Data?) async -> SOPDTO {
         let newSOP = SOP(
             id: UUID(),
             title: title,
@@ -47,7 +54,7 @@ actor DataHandler {
     }
     
     // MARK: - Method to delete existing SOP
-    func deleteSOP(withId id: UUID) throws {
+    func deleteSOP(with id: UUID) async throws {
            let predicate = #Predicate<SOP> { sop in
                return sop.id == id
            }
@@ -55,7 +62,7 @@ actor DataHandler {
        }
        
     // MARK: - Method to fetch existing SOPs
-    func fetchSOPs(with descriptor: FetchDescriptor<SOP>) throws -> [SOPDTO] {
+    func fetchSOPs(with descriptor: FetchDescriptor<SOP>) async throws -> [SOPDTO] {
            return try modelContext
                .fetch(descriptor)
                .map {
@@ -72,7 +79,7 @@ actor DataHandler {
        }
     
     // MARK: - Method to update an existing SOP
-    func updateSOP(withId id: UUID, title: String?, details: String?, keywords: [String]?, isFavorite: Bool?, subject: Subject?, screenshot: Data?) throws {
+    func updateSOP(with id: UUID, title: String?, details: String?, keywords: [String]?, isFavorite: Bool?, subject: Subject?, screenshot: Data?) async throws {
         let predicate = #Predicate<SOP> { sop in
             sop.id == id
         }

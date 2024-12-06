@@ -11,11 +11,10 @@ A SwiftUI add sheet for adding new SOPs.
 */
 
 import SwiftUI
-import SwiftData
 import PhotosUI
 
 struct AddSOPView: View {
-    let storage: DataHandler
+    var viewModel: SOPViewModel
     @Environment(\.modelContext) private var modelContext
     @Environment(\.dismiss) var dismiss
     @State private var title: String = ""
@@ -133,10 +132,12 @@ struct AddSOPView: View {
            }
        }
     }
-    
+}
+
+extension AddSOPView {
     private func addSOP() {
         Task {
-            let newSOP = await storage.addSOP(title: title, details: details, keywords: keywords, isFavorite: isFavorite, subject: subject, screenshot: screenshotData)
+            let newSOP = await viewModel.addSOP(title: title, details: details, keywords: keywords, isFavorite: isFavorite, subject: subject, screenshot: screenshotData)
             await MainActor.run {
                 sops.append(newSOP)
            }

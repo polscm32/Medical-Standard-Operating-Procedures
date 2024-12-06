@@ -14,21 +14,21 @@ import Foundation
 import SwiftUI
 
 struct FavoritesView: View {
-    let storage: DataHandler
+    var viewModel: SOPViewModel
     @Environment(\.colorScheme) var colorScheme
     @State private var selection: SOPDTO?
     @State private var sopCount: Int = 0
     
     var body: some View {
         NavigationSplitView {
-            FavoritesListView(storage: storage, selection: $selection, sopCount: $sopCount)
+            FavoritesListView(viewModel: viewModel, selection: $selection, sopCount: $sopCount)
                 .scrollContentBackground(.hidden)
                 .background(colorScheme == .dark ? Color.clear : Color.white)
                 .navigationTitle("Favorite SOPs")
                 .navigationBarTitleDisplayMode(.large)
         } detail: {
             if let selection = selection {
-                SOPDetailView(storage: storage, sop: selection)
+                SOPDetailView(viewModel: viewModel, sop: selection)
             }
         }
     }

@@ -14,10 +14,9 @@ import SwiftUI
 import PhotosUI
 
 struct UpdateSOPView: View {
-    let storage: DataHandler
+    var viewModel: SOPViewModel
     @Binding var sop: SOPDTO
     @Environment(\.dismiss) private var dismiss
-    
     @State private var title: String = ""
     @State private var details: String = ""
     @State private var keywords: [String] = []
@@ -126,7 +125,9 @@ struct UpdateSOPView: View {
             }
         }
     }
-    
+}
+
+extension UpdateSOPView {
     // Load the initial values from the SOP object into the state variables
     private func loadInitialValues() {
         title = sop.title
@@ -150,7 +151,7 @@ struct UpdateSOPView: View {
     // Update the SOP object with the modified values
     private func updateSOP() async {
         do {
-            try await storage.updateSOP(withId: sop.id, title: title, details: details, keywords: keywords, isFavorite: isFavorite, subject: subject, screenshot: screenshotData)
+            try await viewModel.updateSOP(with: sop.id, title: title, details: details, keywords: keywords, isFavorite: isFavorite, subject: subject, screenshot: screenshotData)
             await MainActor.run {
                            sop.title = title
                            sop.details = details

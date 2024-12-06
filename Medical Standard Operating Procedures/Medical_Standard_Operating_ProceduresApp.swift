@@ -21,22 +21,23 @@ struct Medical_SOPsApp: App {
     private let viewModel: SOPViewModel
 
     init() {
-        let schema = Schema([SOP.self])
-        let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
         do {
-            let modelContainer = try ModelContainer(for: schema, configurations: [modelConfiguration])
-            self.modelContainer = modelContainer
+            // Initialize the schema and model configuration
+            let schema = Schema([SOP.self])
+            let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
+            
+            // Create the model container and related components
+            self.modelContainer = try ModelContainer(for: schema, configurations: [modelConfiguration])
             self.storage = DataHandler(modelContainer: modelContainer)
-            self.viewModel = SOPViewModel(modelContainer: modelContainer)
+            self.viewModel = SOPViewModel(modelContainer: modelContainer, storage: storage)
         } catch {
-            fatalError("\(DebuggingIdentifiers.failed) Failed to create Model Container: \(error)")
+            fatalError("\(DebuggingIdentifiers.failed) Failed to initialize Model Container: \(error.localizedDescription)")
         }
     }
 
     var body: some Scene {
         WindowGroup {
-            TabBar(storage: storage, modelContainer: modelContainer, viewModel: viewModel)
+            TabBar(viewModel: viewModel)
         }
     }
 }

@@ -13,25 +13,21 @@ Allows deletion and updates the count accordingly.
 
 import Foundation
 import SwiftUI
-import SwiftData
 
 struct FavoritesListView: View {
-    let storage: DataHandler
+    var viewModel: SOPViewModel
+    var predicate: Predicate<SOP>?
     @State private var sops = [SOPDTO]()
-    
-    var fetchDescriptor: FetchDescriptor<SOP>?
-    
     @Binding var selection: SOPDTO?
     @Binding var sopCount: Int
     
-    init(storage: DataHandler, selection: Binding<SOPDTO?>, sopCount: Binding<Int>) {
-        self.storage = storage
+    init(viewModel: SOPViewModel, selection: Binding<SOPDTO?>, sopCount: Binding<Int>) {
+        self.viewModel = viewModel
         _selection = selection
         _sopCount = sopCount
-        let predicate = #Predicate<SOP> { sop in
+        self.predicate = #Predicate<SOP> { sop in
             sop.isFavorite
         }
-        self.fetchDescriptor = FetchDescriptor<SOP>(predicate: predicate, sortBy: [SortDescriptor(\SOP.id)])
     }
     
     var body: some View {
@@ -74,8 +70,9 @@ struct FavoritesListView: View {
         .task {
             do {
                 // Load SOPs based on predicate
-                if let descriptor = fetchDescriptor {
-                    let fetchedSOPs = try await storage.fetchSOPs(with: descriptor)
+                if let predicate = self.predicate {
+                    let fetchedSOPs = try await viewModel.fetchSOPs(with: predicate)
+                    
                     await MainActor.run {
                         sops = fetchedSOPs
                     }
@@ -103,7 +100,7 @@ extension FavoritesListView {
                 
                 // Delete the item from storage
                 do {
-                    try await storage.deleteSOP(withId: sop.id)
+                    try await viewModel.deleteSOP(with: sop.id)
                 } catch {
                     debugPrint("\(DebuggingIdentifiers.failed) Failed to delete SOP \(sop.id): \(error)")
                 }

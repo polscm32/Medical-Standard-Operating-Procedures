@@ -13,11 +13,8 @@ Abstract:
 
 import Foundation
 import SwiftUI
-import SwiftData
 
 struct SearchView: View {
-    let storage: DataHandler
-    let modelContainer: ModelContainer
     var viewModel: SOPViewModel
     @Environment(\.colorScheme) var colorScheme
     @State var sops: [SOPDTO]
@@ -45,9 +42,7 @@ struct SearchView: View {
                 .padding(.horizontal,5)
                 
                 SOPListView(
-                    storage: storage,
                     viewModel: viewModel,
-                    modelContainer: modelContainer,
                     sops: $sops,
                     selection: $selection,
                     sopCount: $sopCount,
@@ -78,14 +73,14 @@ struct SearchView: View {
             }
         } detail: {
             if let selection = selection {
-                SOPDetailView(storage: storage, sop: selection)
+                SOPDetailView(viewModel: viewModel, sop: selection)
             }
         }
         .sheet(isPresented: $showAddSOP, onDismiss: {
             showAddSOP = false
         }, content: {
             NavigationStack {
-                AddSOPView(storage: storage, sops: $sops)
+                AddSOPView(viewModel: viewModel, sops: $sops)
             }
             .presentationDetents([.large, .large])
         })

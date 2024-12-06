@@ -12,10 +12,9 @@ When changes are made and confirmed, it refetches the updated SOP.
 */
 
 import SwiftUI
-import SwiftData
 
 struct SOPDetailView: View {
-    let storage: DataHandler
+    var viewModel: SOPViewModel
     @State var sop: SOPDTO
     @State private var showUpdateSheet: Bool = false
     @State private var hasUpdated: Bool = false
@@ -60,7 +59,7 @@ struct SOPDetailView: View {
            .sheet(isPresented: $showUpdateSheet, content: {
                NavigationStack {
                    UpdateSOPView(
-                       storage: storage,
+                       viewModel: viewModel,
                        sop: $sop
                    )
                        .navigationTitle("Edit SOP")

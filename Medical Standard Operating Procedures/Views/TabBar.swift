@@ -15,26 +15,17 @@ import SwiftUI
 import SwiftData
 
 struct TabBar: View {
-    let storage: DataHandler
-    @State var sops = [SOPDTO]() // Sendable type
-    let modelContainer: ModelContainer
     var viewModel: SOPViewModel
-    
-    init(storage: DataHandler, modelContainer: ModelContainer, viewModel: SOPViewModel) {
-        self.storage = storage
-//        self.sops = sops
-        self.modelContainer = modelContainer
-        self.viewModel = viewModel
-    }
+    @State var sops = [SOPDTO]() // Sendable type
     
     var body: some View {
         TabView {
-            SearchView(storage: storage, modelContainer: modelContainer, viewModel: viewModel, sops: sops)
+            SearchView(viewModel: viewModel, sops: sops)
                 .tabItem {
                     Label("Search", systemImage: "magnifyingglass")
                 }
             
-            FavoritesView(storage: storage)
+            FavoritesView(viewModel: viewModel)
                 .tabItem {
                     Label("Favorites", systemImage: "heart")
                 }
