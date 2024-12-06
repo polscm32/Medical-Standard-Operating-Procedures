@@ -17,6 +17,8 @@ import SwiftData
 
 struct SOPListView: View {
     let storage: DataHandler
+    var viewModel: SOPViewModel
+    let modelContainer: ModelContainer
     @Binding var sops: [SOPDTO]
     @Binding var selection: SOPDTO?
     @Binding var sopCount: Int
@@ -78,7 +80,7 @@ extension SOPListView {
                 }
             }
             let fetchDescriptor = FetchDescriptor<SOP>(predicate: predicate, sortBy: [SortDescriptor(\SOP.id)])
-            let fetchedSOPs = try await storage.fetchSOPs(with: fetchDescriptor)
+            let fetchedSOPs = try await viewModel.fetchSOPs(with: fetchDescriptor)
             await MainActor.run {
                 sops = fetchedSOPs
                 sopCount = sops.count

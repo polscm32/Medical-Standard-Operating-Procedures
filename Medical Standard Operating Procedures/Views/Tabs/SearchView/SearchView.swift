@@ -13,9 +13,12 @@ Abstract:
 
 import Foundation
 import SwiftUI
+import SwiftData
 
 struct SearchView: View {
     let storage: DataHandler
+    let modelContainer: ModelContainer
+    var viewModel: SOPViewModel
     @Environment(\.colorScheme) var colorScheme
     @State var sops: [SOPDTO]
     @State private var searchText = ""
@@ -43,6 +46,8 @@ struct SearchView: View {
                 
                 SOPListView(
                     storage: storage,
+                    viewModel: viewModel,
+                    modelContainer: modelContainer,
                     sops: $sops,
                     selection: $selection,
                     sopCount: $sopCount,

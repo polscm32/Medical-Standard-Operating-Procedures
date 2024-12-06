@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "A563FF73-6098-456F-8ECB-E1421BFD51E9"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "549C3946-AC78-4418-A9C0-8D134AFA921D"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Medical Standard Operating Procedures/ViewModel/SOPViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
+            landmarkName = "fetchSOPs(with:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "549C3946-AC78-4418-A9C0-8D134AFA921D - 487830b955dd030d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for Medical_Standard_Operating_Procedures.SOPViewModel.fetchSOPs(with: SwiftData.FetchDescriptor&lt;Medical_Standard_Operating_Procedures.SOP&gt;) async throws -&gt; Swift.Array&lt;Medical_Standard_Operating_Procedures.SOPDTO&gt;"
+                  moduleName = "Medical Standard Operating Procedures.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marvinpolscheit/Desktop/Medical%20Standard%20Operating%20Procedures/Medical%20Standard%20Operating%20Procedures/ViewModel/SOPViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21">
+               </Location>
+               <Location
+                  uuid = "549C3946-AC78-4418-A9C0-8D134AFA921D - e550ec30e4f1dd0e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) suspend resume partial function for Medical_Standard_Operating_Procedures.SOPViewModel.fetchSOPs(with: SwiftData.FetchDescriptor&lt;Medical_Standard_Operating_Procedures.SOP&gt;) async throws -&gt; Swift.Array&lt;Medical_Standard_Operating_Procedures.SOPDTO&gt;"
+                  moduleName = "Medical Standard Operating Procedures.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marvinpolscheit/Desktop/Medical%20Standard%20Operating%20Procedures/Medical%20Standard%20Operating%20Procedures/ViewModel/SOPViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21">
+               </Location>
+               <Location
+                  uuid = "549C3946-AC78-4418-A9C0-8D134AFA921D - 8289d9a637867f0f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for Medical_Standard_Operating_Procedures.SOPViewModel.fetchSOPs(with: SwiftData.FetchDescriptor&lt;Medical_Standard_Operating_Procedures.SOP&gt;) async throws -&gt; Swift.Array&lt;Medical_Standard_Operating_Procedures.SOPDTO&gt;"
+                  moduleName = "Medical Standard Operating Procedures.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marvinpolscheit/Desktop/Medical%20Standard%20Operating%20Procedures/Medical%20Standard%20Operating%20Procedures/ViewModel/SOPViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21">
+               </Location>
+               <Location
+                  uuid = "549C3946-AC78-4418-A9C0-8D134AFA921D - 5fe2951c469b1908"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Medical_Standard_Operating_Procedures.SOPViewModel.fetchSOPs(with: SwiftData.FetchDescriptor&lt;Medical_Standard_Operating_Procedures.SOP&gt;) async throws -&gt; Swift.Array&lt;Medical_Standard_Operating_Procedures.SOPDTO&gt;"
+                  moduleName = "Medical Standard Operating Procedures.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marvinpolscheit/Desktop/Medical%20Standard%20Operating%20Procedures/Medical%20Standard%20Operating%20Procedures/ViewModel/SOPViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21">
+               </Location>
+               <Location
+                  uuid = "549C3946-AC78-4418-A9C0-8D134AFA921D - 5fe2951c469b1908"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for Medical_Standard_Operating_Procedures.SOPViewModel.fetchSOPs(with: SwiftData.FetchDescriptor&lt;Medical_Standard_Operating_Procedures.SOP&gt;) async throws -&gt; Swift.Array&lt;Medical_Standard_Operating_Procedures.SOPDTO&gt;"
+                  moduleName = "Medical Standard Operating Procedures.debug.dylib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/marvinpolscheit/Desktop/Medical%20Standard%20Operating%20Procedures/Medical%20Standard%20Operating%20Procedures/ViewModel/SOPViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "21"
+                  endingLineNumber = "21">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>

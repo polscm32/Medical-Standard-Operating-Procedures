@@ -17,10 +17,19 @@ import SwiftData
 struct TabBar: View {
     let storage: DataHandler
     @State var sops = [SOPDTO]() // Sendable type
+    let modelContainer: ModelContainer
+    var viewModel: SOPViewModel
+    
+    init(storage: DataHandler, modelContainer: ModelContainer, viewModel: SOPViewModel) {
+        self.storage = storage
+//        self.sops = sops
+        self.modelContainer = modelContainer
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         TabView {
-            SearchView(storage: storage, sops: sops)
+            SearchView(storage: storage, modelContainer: modelContainer, viewModel: viewModel, sops: sops)
                 .tabItem {
                     Label("Search", systemImage: "magnifyingglass")
                 }
