@@ -68,7 +68,7 @@ struct AddSOPView: View {
                     PhotosPicker(
                         selection: $screenshot,
                         matching: .images,
-                        photoLibrary: .shared()) {
+                        photoLibrary: .shared()) { [screenshotData] in
                             if let screenshotData, let uiImage = UIImage(data: screenshotData) {
                                 Image(uiImage: uiImage)
                                     .resizable()

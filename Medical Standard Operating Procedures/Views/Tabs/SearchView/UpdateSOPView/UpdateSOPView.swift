@@ -69,7 +69,7 @@ struct UpdateSOPView: View {
                         selection: $screenshot,
                         matching: .images,
                         photoLibrary: .shared()
-                    ) {
+                    ) { [screenshotData] in
                         if let screenshotData, let uiImage = UIImage(data: screenshotData) {
                             Image(uiImage: uiImage)
                                 .resizable()
