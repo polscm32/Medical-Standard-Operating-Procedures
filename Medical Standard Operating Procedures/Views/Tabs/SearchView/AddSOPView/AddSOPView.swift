@@ -25,7 +25,7 @@ struct AddSOPView: View {
     @State private var screenshotData: Data?
     @State private var isFavorite: Bool = false
     @State private var subject: Subject = .all
-    @Binding var sops: [SOPStruct]
+    @Binding var sops: [SOPDTO]
     
     var body: some View {
         Form {

@@ -16,7 +16,7 @@ import SwiftData
 
 struct SOPDetailView: View {
     let storage: DataHandler
-    @State var sop: SOPStruct
+    @State var sop: SOPDTO
     @State private var showUpdateSheet: Bool = false
     @State private var hasUpdated: Bool = false
     

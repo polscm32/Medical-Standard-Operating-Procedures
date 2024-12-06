@@ -16,7 +16,7 @@ import SwiftUI
 struct FavoritesView: View {
     let storage: DataHandler
     @Environment(\.colorScheme) var colorScheme
-    @State private var selection: SOPStruct?
+    @State private var selection: SOPDTO?
     @State private var sopCount: Int = 0
     
     var body: some View {

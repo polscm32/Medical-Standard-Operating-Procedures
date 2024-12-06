@@ -16,7 +16,7 @@ import SwiftData
 
 struct TabBar: View {
     let storage: DataHandler
-    @State var sops = [SOPStruct]() // Sendable type
+    @State var sops = [SOPDTO]() // Sendable type
     
     var body: some View {
         TabView {

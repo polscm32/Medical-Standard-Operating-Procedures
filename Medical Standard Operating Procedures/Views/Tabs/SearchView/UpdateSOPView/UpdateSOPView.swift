@@ -15,7 +15,7 @@ import PhotosUI
 
 struct UpdateSOPView: View {
     let storage: DataHandler
-    @Binding var sop: SOPStruct
+    @Binding var sop: SOPDTO
     @Environment(\.dismiss) private var dismiss
     
     @State private var title: String = ""

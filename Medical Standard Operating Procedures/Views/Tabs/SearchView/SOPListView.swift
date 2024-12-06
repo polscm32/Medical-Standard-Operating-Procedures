@@ -8,7 +8,7 @@
 /*
 Abstract:
 A list view that displays SOPs, allows deletion, and refreshes based on search text and subject changes.
-Uses a @Binding array of SOPStruct to reflect changes upstream.
+Uses a @Binding array of SOPDTO to reflect changes upstream.
  */
 
 import Foundation
@@ -17,8 +17,8 @@ import SwiftData
 
 struct SOPListView: View {
     let storage: DataHandler
-    @Binding var sops: [SOPStruct]
-    @Binding var selection: SOPStruct?
+    @Binding var sops: [SOPDTO]
+    @Binding var selection: SOPDTO?
     @Binding var sopCount: Int
     @Binding var searchText: String
     @Binding var subject: String

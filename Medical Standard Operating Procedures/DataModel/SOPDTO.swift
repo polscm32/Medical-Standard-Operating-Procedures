@@ -1,5 +1,5 @@
 //
-//  SOPStruct.swift
+//  SOPDTO.swift
 //  Medical_SOPs
 //
 //  Created by Marvin Polscheit on 05.12.24.
@@ -12,7 +12,7 @@ A struct that conforms to Sendable to be able to be passed safely among differen
 
 import Foundation
 
-struct SOPStruct: Hashable, Equatable, Sendable, Identifiable {
+struct SOPDTO: Hashable, Equatable, Sendable, Identifiable {
     var id: UUID
     var title: String
     var details: String

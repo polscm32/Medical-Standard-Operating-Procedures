@@ -17,9 +17,9 @@ import SwiftUI
 struct SearchView: View {
     let storage: DataHandler
     @Environment(\.colorScheme) var colorScheme
-    @State var sops: [SOPStruct]
+    @State var sops: [SOPDTO]
     @State private var searchText = ""
-    @State private var selection: SOPStruct?
+    @State private var selection: SOPDTO?
     @State private var showAddSOP: Bool = false
     @State private var sopCount: Int = 0
     @State private var subject: Subject = .all

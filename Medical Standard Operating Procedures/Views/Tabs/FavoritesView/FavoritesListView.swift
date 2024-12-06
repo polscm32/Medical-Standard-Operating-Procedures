@@ -17,14 +17,14 @@ import SwiftData
 
 struct FavoritesListView: View {
     let storage: DataHandler
-    @State private var sops = [SOPStruct]()
+    @State private var sops = [SOPDTO]()
     
     var fetchDescriptor: FetchDescriptor<SOP>?
     
-    @Binding var selection: SOPStruct?
+    @Binding var selection: SOPDTO?
     @Binding var sopCount: Int
     
-    init(storage: DataHandler, selection: Binding<SOPStruct?>, sopCount: Binding<Int>) {
+    init(storage: DataHandler, selection: Binding<SOPDTO?>, sopCount: Binding<Int>) {
         self.storage = storage
         _selection = selection
         _sopCount = sopCount

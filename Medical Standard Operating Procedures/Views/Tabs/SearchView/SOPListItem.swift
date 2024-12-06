@@ -14,7 +14,7 @@
 import SwiftUI
 
 struct SOPListItem: View {
-    var sop: SOPStruct
+    var sop: SOPDTO
     
     var body: some View {
         NavigationLink(value: sop) {

@@ -16,7 +16,7 @@ import SwiftData
 @ModelActor
 actor DataHandler {
     // MARK: - Method to create a new SOP entry
-    func addSOP(title: String, details: String, keywords: [String], isFavorite: Bool, subject: Subject, screenshot: Data?) -> SOPStruct {
+    func addSOP(title: String, details: String, keywords: [String], isFavorite: Bool, subject: Subject, screenshot: Data?) -> SOPDTO {
         let newSOP = SOP(
             id: UUID(),
             title: title,
@@ -35,7 +35,7 @@ actor DataHandler {
             debugPrint("\(DebuggingIdentifiers.failed) Failure saving SOP: \(error)")
         }
         
-        return SOPStruct(
+        return SOPDTO(
             id: UUID(),
             title: title,
             details: details,
@@ -55,11 +55,11 @@ actor DataHandler {
        }
        
     // MARK: - Method to fetch existing SOPs
-    func fetchSOPs(with descriptor: FetchDescriptor<SOP>) throws -> [SOPStruct] {
+    func fetchSOPs(with descriptor: FetchDescriptor<SOP>) throws -> [SOPDTO] {
            return try modelContext
                .fetch(descriptor)
                .map {
-                   SOPStruct(
+                   SOPDTO(
                     id: $0.id,
                     title: $0.title,
                     details: $0.details,
