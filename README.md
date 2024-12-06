@@ -1,13 +1,13 @@
 # Medical Standard Operating Procedures (SOPs) App
 
-A simple app written in Swift designed for healthcare professionals to streamline the management of **Standard Operating Procedures (SOPs)**. This app allows users to add SOPs easily via screenshots, making it a quick and efficient tool for organizing medical processes.
+A simple app written in Swift and with Swift Data designed for healthcare professionals to streamline the management of **Standard Operating Procedures (SOPs)**. This app allows users to add SOPs easily via screenshots, making it a quick and efficient tool for organizing medical processes.
 
 ---
 
 ## Features
 
 - **Add SOPs via Screenshot:**
-  Quickly import and manage SOPs by capturing and saving screenshots directly in the app.
+  Quickly import and manage SOPs by importing screenshots directly in the app.
 
 - **Modern and Intuitive Design:**
   A clean user interface with a focus on simplicity and usability.
@@ -15,7 +15,6 @@ A simple app written in Swift designed for healthcare professionals to streamlin
 - **Future Plans:**
   In future iterations, the app will include:
   - **In-app Flowchart Creation:** Users will be able to design and customize flowcharts directly within the app.
-  - Improved data handling and organization for even greater efficiency.
 
 ---
 
